@@ -225,32 +225,40 @@ document.querySelectorAll('.skill-tag').forEach((tag, index) => {
   observer.observe(tag);
 });
 
-// ===== Contact Form Handling =====
+// ===== Contact Form Handling with Web3Forms =====
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.querySelector('.form-message');
 
-contactForm.addEventListener('submit', (e) => {
+// Get Web3Forms access key from environment (or fallback for local testing)
+const WEB3FORMS_ACCESS_KEY = '0c5981a0-2a37-47b3-a633-5411712996c0';
+
+contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   
-  // Clear previous errors
+  // Clear previous errors and messages
   document.querySelectorAll('.error').forEach(error => {
     error.style.display = 'none';
     error.textContent = '';
   });
+  formMessage.style.display = 'none';
+  formMessage.className = 'form-message';
+  formMessage.textContent = '';
   
   // Validate form
-  let isValid = true;
   const formData = new FormData(contactForm);
+  let isValid = true;
   
-  // Name validation
+  // fields validation
   const name = formData.get('name').trim();
+  const email = formData.get('email').trim();
+  const subject = formData.get('subject');
+  const message = formData.get('message').trim();
+
   if (name.length < 2) {
     showError('name', 'Please enter your full name');
     isValid = false;
   }
   
-  // Email validation
-  const email = formData.get('email').trim();
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     showError('email', 'Please enter a valid email address');
@@ -258,55 +266,76 @@ contactForm.addEventListener('submit', (e) => {
   }
   
   // Subject validation
-  const subject = formData.get('subject');
   if (!subject) {
     showError('subject', 'Please select a subject');
     isValid = false;
   }
   
   // Message validation
-  const message = formData.get('message').trim();
   if (message.length < 10) {
     showError('message', 'Please enter a message (at least 10 characters)');
     isValid = false;
   }
   
   if (isValid) {
-    // Simulate form submission
+    // Add required Web3Forms fields
+    formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+    formData.append('subject', `Portfolio Contact: ${subject}`);
+    
+    // Add honeypot field (empty = human, filled = bot)
+    formData.append('botcheck', '');
+    
     const submitBtn = contactForm.querySelector('.form-submit-btn');
-    const originalText = submitBtn.innerHTML;
+    const originalHTML = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     submitBtn.disabled = true;
     
-    // Simulate API call
-    setTimeout(() => {
-      formMessage.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
-      formMessage.className = 'form-message success';
-      formMessage.style.display = 'block';
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
       
-      contactForm.reset();
-      submitBtn.innerHTML = originalText;
+      const data = await response.json();
+      
+      if (data.success) {
+        formMessage.innerHTML = 'Message sent successfully! I\'ll get back to you soon.';
+        formMessage.className = 'form-message success';
+        formMessage.style.display = 'block';
+        contactForm.reset();
+      } else {
+        // Web3Forms error (invalid key, spam, etc.)
+        formMessage.innerHTML = `Error: ${data.message || 'Submission failed. Please try again.'}`;
+        formMessage.className = 'form-message error';
+        formMessage.style.display = 'block';
+      }
+    } catch (error) {
+      formMessage.innerHTML = 'Network error. Please check your connection and try again.';
+      formMessage.className = 'form-message error';
+      formMessage.style.display = 'block';
+    } finally {
+      submitBtn.innerHTML = originalHTML;
       submitBtn.disabled = false;
       
-      // Hide success message after 5 seconds
+      // Hide message after 5 seconds
       setTimeout(() => {
         formMessage.style.display = 'none';
       }, 5000);
-    }, 1500);
+    }
   }
 });
 
 function showError(fieldName, message) {
-  const field = contactForm.querySelector(`[name="${fieldName}"]`);
-  const errorElement = field.parentElement.querySelector('.error');
-  errorElement.textContent = message;
-  errorElement.style.display = 'block';
-  field.style.borderColor = '#ef4444';
+  const input = contactForm.querySelector(`[name="${fieldName}"]`);
+  const _error = input.parentElement.querySelector('.error');
+  _error.textContent = message;
+  _error.style.display = 'block';
+  input.style.borderColor = '#ef4444';
   
   // Reset border color on input
-  field.addEventListener('input', function() {
-    this.style.borderColor = '';
-    errorElement.style.display = 'none';
+  input.addEventListener('input', function() {
+    input.style.borderColor = '';
+    _error.style.display = 'none';
   }, { once: true });
 }
 
