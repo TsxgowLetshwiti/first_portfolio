@@ -242,7 +242,7 @@ body {
   box-shadow: 0 20px 60px rgba(209, 255, 103, 0.3);
   position: relative;
   overflow: hidden;
-  background-image: url('./Tsxgow.jpg');
+  background-image: url('/images/Tsxgow.jpg');
   background-size: cover;
   background-position: center;
 }
