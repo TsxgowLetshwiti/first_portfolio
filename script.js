@@ -389,20 +389,3 @@ if ('IntersectionObserver' in window) {
     imageObserver.observe(img);
   });
 }
-
-// ===== Add hover sound effect (optional - commented out by default) =====
-/*
-const hoverSound = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBiSAzvLZiTYIG2m98OScTgwOUavm76xgHAU7k9n0y3krBSh+zPLaizsKGGS64+mfUg0MW6zn77BfHQU/luD0xnUmBS1+0PLaiDYIGmi78OOaTAwNUKXh8bllHAY5k9jtinItBSV6yPDhlEILF2S84+ijUw0NWqzn769dHgQ/kdv0yXUrBSx+zPLaizsKGGS57+aYSAsLTqPj8r1kHAU5k9jtzXMoBSR8y/LbiTcIF2i78+acTw0PUqXj8bllHAU7k9j0ynQpBSV7yPDbizwJGGa67+iaSQwMTqXh8r5kHAU5k9j0yHQpBSV7yPDbjjsKGGO77+KeUgwMTqXh8rxiHAU7k9j0yHMoBCR8yfDbjTsKGGS77+KdTwwNTqLh8rxiHAU7k9j0yHMoBSV8yfDbizsKGGS77+KfTwwNT6Ph8r1iHAU7k9j0yHQpBSV7yPDbi');
-
-document.querySelectorAll('.btn, .nav-links a, .skill-tag').forEach(element => {
-  element.addEventListener('mouseenter', () => {
-    hoverSound.currentTime = 0;
-    hoverSound.play().catch(() => {}); // Ignore errors if sound can't play
-  });
-});
-*/
-
-// ===== Console Message =====
-console.log('%cHey there! ', 'font-size: 20px; font-weight: bold; color: #6366f1;');
-console.log('%cLooking at the code? I like your style!', 'font-size: 14px; color: #94a3b8;');
-console.log('%cFeel free to reach out if you want to collaborate!', 'font-size: 12px; color: #0ea5e9;');
