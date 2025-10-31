@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tshego - Jr Software Developer</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.4.0/fonts/remixicon.css" rel="stylesheet"/>
+
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo"><i class="fas fa-code"></i> Tshego</a>
+      <ul class="nav-links">
+        <li><a href="#home"><i class="fas fa-home active"></i> Home</a></li>
+        <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+        <li><a href="#skills"><i class="fas fa-cogs"></i> Skills</a></li>
+        <li><a href="#projects"><i class="fas fa-folder-open"></i> Projects</a></li>
+        <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div id="particles-js"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Tshegofatso</h1>
+          <h2>Software Developer</h2>
+          <p>Crafting scalable, user-centric web applications with modern tech stacks. Passionate about clean code and innovative solutions.</p>
+          <div class="hero-buttons">
+            <a href="#about" class="btn btn-primary">Learn More</a>
+            <a href="#" class="btn btn-secondary">Download CV</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="profile-pic"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="section" id="experience">
+    <div class="container">
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>Senior Software Engineer</h3>
+            <h4>TechFlow Solutions <span class="date">2023 - Present</span></h4>
+            <p>Leading development of cloud-native microservices using React, Node.js, and AWS. Improved system performance by 40% through optimization and caching strategies.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>Full Stack Developer</h3>
+            <h4>Innovate Labs <span class="date">2021 - 2023</span></h4>
+            <p>Built responsive SPAs with React & Django. Implemented CI/CD pipelines and reduced deployment time by 60%.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>Junior Developer</h3>
+            <h4>CodeCraft Studio <span class="date">2020 - 2021</span></h4>
+            <p>Developed and maintained client websites using PHP, JavaScript, and MySQL. Gained expertise in agile workflows.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section" id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills & Technologies</h2>
+      <div class="skills-grid">
+        <div class="card">
+          <h3>Core Expertise</h3>
+          <p>I specialize in building full-stack applications with modern frameworks and cloud infrastructure.</p>
+        </div>
+        <div class="skills-list">
+          <div class="skills-tags">
+            <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
+            <span class="skill-tag"><i class="fab fa-js-square"></i> JavaScript</span>
+            <span class="skill-tag"><i class="fab fa-css3"></i> CSS3</span>
+            <span class="skill-tag"><i class="fab fa-php"></i> PHP</span>
+            <span class="skill-tag"><i class="fab fa-aws"></i> AWS</span>
+            <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=200&fit=crop')"></div>
+          <div class="project-content">
+            <h4>Data Analytics Platform</h4>
+            <p>Machine learning-powered dashboard for real-time business insights.</p>
+            <div class="project-buttons">
+              <a href="#" class="btn btn-primary">Live</a>
+              <a href="#" class="btn btn-outline">Repo</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=200&fit=crop')"></div>
+          <div class="project-content">
+            <h4>E-Commerce Platform</h4>
+            <p>Secure, scalable online store with payment integration and inventory sync.</p>
+            <div class="project-buttons">
+              <a href="#" class="btn btn-primary">Live</a>
+              <a href="#" class="btn btn-outline">Repo</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop')"></div>
+          <div class="project-content">
+            <h4>Content Management System</h4>
+            <p>Drag-and-drop CMS with real-time collaboration and version control.</p>
+            <div class="project-buttons">
+              <a href="#" class="btn btn-primary">Live</a>
+              <a href="#" class="btn btn-outline">Repo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="content-grid">
+        <div class="card">
+          <p>I'm a passionate Jr <strong>software developer</strong> dedicated to creating impactful digital solutions. With expertise in modern web technologies, I turn complex challenges into elegant, scalable applications.</p>
+          <p>When I'm not coding, I enjoy mentoring junior developers, contributing to open-source, and exploring AI innovations.</p>
+          <a href="#" class="btn btn-primary">Download Resume</a>
+        </div>
+        <div class="about-image">
+          <img src="./Tsxgow.jpg" alt="Tshego" loading="lazy"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact-form-section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="content-grid">
+        <div class="card">
+          <p>Have a project in mind? Let's build something amazing together.</p>
+          <div class="contact-features">
+            <div class="feature-item"><i class="fas fa-clock"></i> <span>Quick Response</span></div>
+            <div class="feature-item"><i class="fas fa-handshake"></i> <span>Professional Service</span></div>
+            <div class="feature-item"><i class="fas fa-shield-alt"></i> <span>Confidential</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-group">
+              <label><i class="fas fa-user"></i> Full Name</label>
+              <input type="text" name="name" required />
+              <span class="error"></span>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-envelope"></i> Email Address</label>
+              <input type="email" name="email" required />
+              <span class="error"></span>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-tag"></i> Subject</label>
+              <select name="subject" required>
+                <option value="">Select...</option>
+                <option>New Project</option>
+                <option>Collaboration</option>
+                <option>Consultation</option>
+                <option>Other</option>
+              </select>
+              <span class="error"></span>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-comment"></i> Message</label>
+              <textarea name="message" rows="5" placeholder="Tell me about your idea..." required></textarea>
+              <span class="error"></span>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit-btn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+            <div class="form-message"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Tshego. Built with passion, code, and coffee.</p>
+      <div class="social-links">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
